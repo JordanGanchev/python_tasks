@@ -24,3 +24,17 @@ for root, dirs, files in walk('.'):
     print(root)
     print(dirs)
     print(files)
+
+
+#--------------------------------------
+
+result = {}
+for _, _, files in walk('.'): # walk('.', topdown=False):
+    for file in files:
+        ext = file.split('.')[-1]
+        if ext not in result:
+            result[ext] = []
+        result[ext].append(file)
+
+for key, value in result.items():
+    print(key, value)
