@@ -1,3 +1,4 @@
+from os import walk
 from os import listdir
 from  os .path import isdir, join
 
@@ -16,3 +17,10 @@ directory_traversal('./', result)
 
 for key, value in result.items():
     print(key, value)
+
+#-----------------------------------
+
+for root, dirs, files in walk('.'):
+    print(root)
+    print(dirs)
+    print(files)
