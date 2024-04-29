@@ -12,6 +12,7 @@ IN_GAME = True
 
 c = Canvas(root, width=WIDTH, height=HEIGHT, bg="#ffffff")
 c.grid()
+
 c.focus_set()
 
 
@@ -68,8 +69,17 @@ class Snake(object):
         last_seg = c.coords(self.segments[0].instance)
 
         # определяме координатите къде да поставят следващия елемент
-        x  = last_seg[2] - SEG_SIZE
+        x = last_seg[2] - SEG_SIZE
         y = last_seg[3] - SEG_SIZE
 
-        # добавя
+        # добавя още един сегмент към змията в зададените координати
 
+        self.segments.insert(0, Segment(x, y))
+
+
+segments = [Segment(SEG_SIZE, SEG_SIZE),
+            Segment(SEG_SIZE*2, SEG_SIZE),
+            Segment(SEG_SIZE*3, SEG_SIZE)]
+
+s = Snake(segments)
+print(s.move())
